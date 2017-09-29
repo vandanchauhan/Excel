@@ -1,0 +1,130 @@
+<ion-content>
+
+    <ion-slides (ionSlideDidChange)="slideChanged()" #slides>
+
+
+    	<!-- <ion-slide>
+    		<div style=" box-shadow: #d8d8d8 1px 6px 13px;">
+    			<h1 class="title">Excel Academy</h1>
+    		</div>
+        	<h1 class="select-subj1">Enter the following details..</h1>
+        	<label class="label">Name:</label><br>
+        	<input class="info-input inp1" type="" value="" name="name" [(ngModel)]="name" placeholder="Your Name" /><br>
+        	<label style="margin-left: -39%;" class="label">Roll Number:</label><br>
+        	<input class="info-input inp2" type="" value="" name="rollno" [(ngModel)]="rollno" placeholder="Your Roll No."/><br>
+			<button ion-button class="submit-btn info-submit-btn" color="white" style="border-radius:5px;margin-top:45%;" (click)="submit()">Submit</button>
+        </ion-slide>
+
+        <ion-slide>
+    		<div style=" box-shadow: #d8d8d8 1px 6px 13px;">
+    			<h1 class="title">Excel Academy</h1>
+    		</div>
+        	<h1 style="margin-top:25%;" class="select-subj">You are..</h1>
+        	<ion-select class="stu-options" [(ngModel)]="type">
+        		<ion-option value="a">Select</ion-option> 
+                <ion-option value="in 11th">in 11th</ion-option>
+                <ion-option value="in 12th">in 12th</ion-option>
+                <ion-option value="a Dropout">a Dropout</ion-option>
+			</ion-select>
+			<button ion-button class="submit-btn info-submit-btn" color="white" style="border-radius:5px;margin-top:78%;font-size:19px;" (click)="submit2()">Submit and Start test</button>
+        </ion-slide>
+ -->
+        <ion-slide class="start-slide">
+        	<h1 class="select-subj">Choose your Subject</h1>
+            <button ion-button class="big-btn" color="primary" (click)="nextSlide()">Physics</button><br>
+            <button ion-button class="big-btn" color="blue" (click)="tochem()">Chemistry</button><br>
+            <button ion-button class="big-btn" color="green" (click)="tomaths()">Maths</button>
+        </ion-slide>
+ 
+        <ion-slide *ngFor="let question of questions;let i = index; ">
+        	<div style=" box-shadow: #d8d8d8 1px 6px 13px;">
+	        	<ion-select class="subj-select" [(ngModel)]="subj" (ionChange)="optionsFn();"> 
+	                    <ion-option value="p">Physics</ion-option>
+	                    <ion-option value="c">Chemistry</ion-option>
+	                    <ion-option value="m">Maths</ion-option>
+				</ion-select>
+
+				<button ion-button class="submit-btn" color="white" style="border-radius:7px;" (click)="tosubmit()">Submit</button>
+			</div>	
+<!--  			<h3 class="left-subj">{{question.subject}}</h3> -->
+			<div class="qtn-div">
+            	<h3 style="margin-top:13px;margin-left:15px;" class="left"><span class="qtn-num">Question {{question.number}}</span> <br> {{question.questionText}}</h3>
+ 			</div>
+
+            <ion-list class="options" no-lines radio-group>
+ 
+                <ion-item class="option-style" *ngFor="let answer of question.answers; let i=index; ">
+ 					<!-- <ion-radio style="float:left;margin: 6px 15px 3px 20px;" 
+	                    (click)="selectAnswer( answer, question)"               
+	 					[checked]="answer.selected" [disabled]="hasAnswered"></ion-radio> 
+                    <ion-label style="color:black;">
+	                    heyy {{answer.answer}}
+ 					</ion-label> -->
+ 
+                <ion-label style="color:black;margin-left:0px;" >{{i+1}}. {{answer.answer}}</ion-label>
+                <ion-radio (click)="selectAnswer( answer, question)" [checked]="answer.selected"></ion-radio>
+ 
+                </ion-item>
+                <br>
+                <br>
+ 				<button style="padding: 11px 22px;" ion-button color="grey" (click)="prevSlide()">Prev</button>
+ 				<button style="padding: 11px 22px;" ion-button color="grey" (click)="nextSlide()">Next</button>
+ 				<!-- <br>
+ 				<br>
+ 				<br>
+ 				<br>
+ 				<br>
+ 				<br>
+ 				<br>
+ 				<br>
+ 				<br>
+ 				<br>
+ 				<select>
+				  <option value="volvo" onClick="tophy()" >Physics</option>
+				  <option value="saab" onClick="tochem()">Chemistry</option>
+				  <option value="mercedes" (click)="tomaths()">Maths</option>
+				</select>
+ 				<button ion-button color="primary" style="border-radius:" (click)="tophy()">Physics</button>
+	            <button ion-button color="primary" style="border-radius:" (click)="tochem()">Chemistry</button>
+	            <button ion-button color="primary" style="border-radius:" (click)="tomaths()">Maths</button> -->
+            </ion-list>
+ 
+        </ion-slide>
+ 
+        <ion-slide>
+        <form action="/api/results" method="post">
+         	<button class="final-submit" (click)="finalsubmit()" ion-button full color="light-green">Submit Test</button>
+        </form>
+        </ion-slide>
+
+        <ion-slide>
+        <div style="color:#949494;text-align:left;margin:0px;margin-left:30px;" >
+	        <h1 style="margin-bottom:2px;">Congratulations!</h1>
+	        <h3>You have completed your test.</h3>
+        </div>
+
+        <h2 style="color:black;text-align:left;margin:0px;margin-left:30px;font-weight:lighter;" >Your Score:</h2>
+        <div class="big-btn1" style="background-color:#f0b11a;" >
+        	<h3>PHYSICS    <span class="mks">  {{ptotal}}/12 </span></h3>
+        </div>
+        <div class="big-btn1" style="background-color:#19b5e2;">
+        	<h3>CHEMISTRY  <span class="mks">  {{ctotal}}/12 </span></h3>
+        </div>
+        <div class="big-btn1" style="background-color:#22a89f;">
+        	<h3>MATHS       <span class="mks"> {{mtotal}}/12 </span></h3>
+        </div>
+        <div class="big-btn1" style="background-color:#9d9d9d;margin-top:20%;">
+        	<h3>TOTAL <span class="mks" > {{total}}/36 </span></h3>
+        </div>
+         	<!-- <h3>Physics: </h3>
+         	<h3>Correct ==> {{Physics}} Incorrect ==> {{nPhysics}}</h3>
+         	<h3>Chemistry: </h3>
+         	<h3>Correct ==> {{Chemistry}} Incorrect ==> {{nChemistry}}</h3>
+         	<h3>Maths: </h3>
+         	<h3>Correct ==> {{Maths}} Incorrect ==> {{nMaths}}</h3>
+         	<h3>Total score: {{total}}/36</h3> -->
+        </ion-slide>
+
+    </ion-slides>
+ 
+</ion-content>

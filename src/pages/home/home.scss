@@ -1,0 +1,182 @@
+.ios, .md {
+ 
+    page-home {
+ 
+        ion-slide {
+            align-items: flex-start;
+            margin-top:5%;
+        }
+
+        ion-select {
+        	float:left;
+        }
+
+        ion-button {
+         	float:left;
+         	margin-bottom:0px;
+        }
+
+        select-icon-inner {
+        	margin-left: 32px;
+        }
+
+        .title {
+        	color: #949494;
+		    margin-top: -8px;
+		    padding-bottom: 11px;
+		    margin-left: -178px;
+        }
+
+        .label {
+        	color:black;
+        	text-align:left;
+        	margin-left: -51%
+        }
+
+        .info-input {
+        	color:black;
+        	padding:10px;
+    	    margin: 10px;
+		    margin-bottom: 7%;
+		    border: 1px solid #2b2b2b;
+		    border-radius:7px;
+        }
+
+        .info-submit-btn {
+        	margin-top:20%;
+        }
+
+        .options {
+        	margin-top:7%;
+        }
+
+        .stu-options {
+        	color: #949494;
+		    padding: 14px 5%;
+		    margin: 10px 26.2%;
+		    width: 120%;
+		    border: 1px solid #5a5a5a;
+		    border-radius: 7px;
+		    font-size: 20px;
+        }
+
+        .submit-btn {
+        	border-radius: 5px;
+		    background-color: #6abd45;
+		    margin-top: -5px;
+		    margin-bottom: 11px;
+		    padding: 7px 70px;
+		    font-weight:bold;
+		    felx-flow:column;	
+        }
+
+        .qtn-div {
+			color: black;
+		    height: 135px;
+		    margin: 10px;
+		    -webkit-box-shadow: #d8d8d8 4px 8px 9px;
+		    border-radius: 5px;
+		    margin-top: 45px;
+		    border: 1px solid #d8d8d8;      	
+        }
+
+		.qtn-num {
+			font-size:15px;
+			color:grey;
+			margin-left: 6px;	
+		}
+
+		.final-submit {
+			margin: 19px;
+		    margin-top: 82%;
+		    width: 91%;
+		    padding: 45px 0px;
+		    font-size: 24px;
+		    border-radius: 6px;
+		}
+
+        .subj-select {
+        	background-color: #f5f6f7;
+    	    color: black;
+		    margin-left: 20px;
+		    margin-top: -9px;
+		    padding: 3% 13%;
+		    border-radius: 6px;
+		    font-size:18px;
+        }
+
+        .option-style {
+        	color: black;
+        	background-color:white;
+        }
+
+        .big-btn {
+    	    width: 95%;
+		    padding: 9%;
+		    margin-bottom: 3%;
+		}
+
+        .big-btn1 {
+    	    width: 74%;
+		    padding: 1%;
+		    margin: 32px;
+		    margin-bottom: -3%;
+		    border-radius:5px;
+		    text-align:left;
+		    padding-left:4%;
+		    -webkit-box-shadow: #d8d8d8 2px 2px 10px;
+        }
+
+        .mks {
+        	margin-left: 70px;
+        	text-align:right;
+        }
+
+        .select-subj {
+        	color:#949494;
+        	margin-left:-28%;
+        	margin-bottom:6%;
+        }
+
+        .select-subj1 {
+        	color:#949494;
+        	margin-bottom:6%;
+        	margin-top:25%;
+        }
+
+		.round {
+        	border-radius: 20px;
+        }
+
+        .left {
+        	text-align:left;
+        	margin-left:5%;
+    		margin-bottom: 4%;
+        }
+
+        .left-subj {
+        	text-align:left;
+        	margin-left:5%;
+    	    margin-top: 10%;
+    	    margin-bottom: 2%;
+        }
+ 
+        ion-item {
+            margin-bottom: 5px;
+            font-size: 1.2em;
+            background-color: map-get($colors, grey);
+        }
+ 
+        .start-slide {
+            justify-content: center;
+            align-items: center;
+ 
+            button {
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+        }
+ 
+    }
+ 
+}
